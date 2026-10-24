@@ -82,7 +82,7 @@ export default function RootLayout({
           <div className="relative w-8 h-8 overflow-hidden rounded-full grayscale opacity-50 mb-2">
             <Image src="/Soberania-Editorial.png" alt="Soberanía Editorial" fill className="object-cover" />
           </div>
-          <p>© {new Date().getFullYear()} Demián Agustín Testino. Todos los derechos reservados.</p>
+          <p>© 2026 Demián Agustín Testino. Todos los derechos reservados.</p>
           <a href="mailto:edicionesdemiantestino@gmail.com" className="hover:text-ediciones-accent transition-colors duration-300">
             edicionesdemiantestino@gmail.com
           </a>
