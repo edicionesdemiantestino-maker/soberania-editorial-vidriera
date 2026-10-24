@@ -134,6 +134,13 @@ El aire en Montevideo se ha vuelto sólido. No se respira, se mastica. Es un com
   }
 };
 
+// Generación de parámetros estáticos para las rutas dinámicas en Vercel
+export async function generateStaticParams() {
+  return Object.keys(booksData).map((slug) => ({
+    slug: slug,
+  }));
+}
+
 export default async function LibroPage({
   params,
 }: {
