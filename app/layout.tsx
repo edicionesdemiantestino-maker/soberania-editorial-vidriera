@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Soberanía Editorial | Demián A. Testino",
     description: "Sagas de identidad patagónica, crónicas sociales y narrativas cubistas.",
-    url: "https://soberaniaeditorial.vercel.app", // Reemplaza esto con tu dominio final cuando lo tengas
+    url: "https://soberania-editorial-vidriera-nine.vercel.app", 
     siteName: "Soberanía Editorial",
     images: [
       {
@@ -48,7 +48,7 @@ export default function RootLayout({
   const whatsappNumber = "5492804841846";
 
   return (
-    <html lang="es" className={`scroll-smooth ${inter.variable}${merriweather.variable}`}>
+    <html lang="es" className={`scroll-smooth ${inter.variable} ${merriweather.variable}`}>
       <body className="antialiased min-h-screen flex flex-col bg-ediciones-dark text-ediciones-light font-sans selection:bg-ediciones-accent selection:text-black">
         <header className="border-b border-neutral-800/50 bg-black/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm shadow-neutral-900/50">
           <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -63,6 +63,7 @@ export default function RootLayout({
             <nav className="flex gap-6 text-sm uppercase tracking-wider text-neutral-400 font-medium">
               <a href="/#catalogo" className="hover:text-white transition-colors duration-300">Catálogo</a>
               <a href="/sobre-el-autor" className="hover:text-white transition-colors duration-300">Autor</a>
+              <a href="/institucional" className="hover:text-white transition-colors duration-300">Institucional</a>
               <a 
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola Demián, me comunico desde la web de Soberanía Editorial.")}`} 
                 target="_blank" 
