@@ -155,8 +155,34 @@ export default async function LibroPage({
 
   const whatsappNumber = "5492804841846";
 
+  // Objeto SEO de Schema.org para Google
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": book.title,
+    "alternateName": book.subtitle,
+    "author": {
+      "@type": "Person",
+      "name": "Demián Agustín Testino"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Soberanía Editorial"
+    },
+    "datePublished": book.year,
+    "inLanguage": slug === "cubismo-en" ? "en" : "es-AR",
+    "description": book.synopsis,
+    "url": `https://soberania-editorial-vidriera-nine.vercel.app/libros/${slug}`
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      {/* Inyección de Datos Estructurados Invisible para Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Link 
         href="/#catalogo" 
         className="text-xs font-mono text-neutral-400 hover:text-white uppercase tracking-widest mb-8 inline-block transition-colors"
