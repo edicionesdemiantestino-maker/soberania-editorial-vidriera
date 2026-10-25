@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Inter, Merriweather } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 // Optimización de tipografías nativas en Next.js
@@ -89,6 +90,9 @@ export default function RootLayout({
             edicionesdemiantestino@gmail.com
           </a>
         </footer>
+        
+        {/* Inyección de Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
