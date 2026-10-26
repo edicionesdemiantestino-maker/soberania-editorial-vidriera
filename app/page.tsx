@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 
 export default function Home() {
   const whatsappNumber = "5492804841846";
@@ -88,6 +87,28 @@ export default function Home() {
     },
   ];
 
+  // Libros de cabecera / inspiración (Estética limpia propia)
+  const inspiringReads = [
+    {
+      title: "Demian",
+      author: "Hermann Hesse",
+      cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1547841594l/43609577._SY75_.jpg",
+      goodreadsUrl: "https://www.goodreads.com/review/show/9056382784"
+    },
+    {
+      title: "Crónicas del Ángel Gris",
+      author: "Alejandro Dolina",
+      cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348608234l/230467._SX50_.jpg",
+      goodreadsUrl: "https://www.goodreads.com/review/show/9056380075"
+    },
+    {
+      title: "Rebelión en la Granja",
+      author: "George Orwell",
+      cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1325861570l/170448._SY75_.jpg",
+      goodreadsUrl: "https://www.goodreads.com/review/show/9056378737"
+    }
+  ];
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       {/* SECCIÓN 1: TÍTULO Y PRESENTACIÓN */}
@@ -149,74 +170,42 @@ export default function Home() {
         ))}
       </section>
 
-      {/* SECCIÓN 3: IDENTIDAD LITERARIA (WIDGET DE GOODREADS) */}
+      {/* SECCIÓN 3: IDENTIDAD LITERARIA (DISEÑO PROPIO Y ELEGANTE) */}
       <section className="mt-24 border-t border-neutral-800 pt-16 mb-10">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <h3 className="text-3xl font-bold uppercase tracking-tight">Mi Identidad Literaria</h3>
           <p className="text-neutral-400 font-serif mt-2">
             Obras y lecturas que influyen en el universo de mis sagas.
           </p>
         </div>
         
-        {/* Contenedor adaptado al diseño de tu web */}
-        <div className="flex justify-center bg-neutral-900/50 p-6 md:p-8 border border-neutral-800 rounded-lg overflow-x-auto">
-          <div id="gr_custom_widget_" className="w-full max-w-xl text-neutral-200">
-            {/* Contenido estático de respaldo cargado con tus datos */}
-            <div className="space-y-4">
-              <div className="border-b border-neutral-800 pb-3 text-center">
-                <a 
-                  style={{ textDecoration: 'none' }} 
-                  rel="nofollow" 
-                  href="https://www.goodreads.com/review/list/205858549-demian-agust-n?shelf=read&utm_medium=api&utm_source=custom_widget"
-                  className="text-lg font-bold uppercase tracking-wider hover:text-white transition-colors"
-                >
-                  Biblioteca de Lecturas de Demián
-                </a>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          {inspiringReads.map((item, idx) => (
+            <a 
+              key={idx}
+              href={item.goodreadsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-neutral-900/50 border border-neutral-800 p-5 rounded-lg flex flex-col items-center text-center group hover:border-neutral-600 transition-all duration-300"
+            >
+              <div className="w-24 h-36 relative mb-4 shadow-md overflow-hidden border border-neutral-700">
+                <img 
+                  src={item.cover} 
+                  alt={item.title} 
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-
-              {/* Libro 1: Demian */}
-              <div className="flex items-center gap-4 border-b border-neutral-800 pb-4">
-                <div className="w-12 h-16 relative flex-shrink-0 bg-neutral-800">
-                  <img alt="Demian" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1547841594l/43609577._SY75_.jpg" className="object-cover w-full h-full" />
-                </div>
-                <div className="flex-grow">
-                  <a rel="nofollow" href="https://www.goodreads.com/review/show/9056382784" className="font-bold hover:underline">Demian</a>
-                  <p className="text-xs text-neutral-400">por Hermann Hesse</p>
-                </div>
-              </div>
-
-              {/* Libro 2: Crónicas del Ángel Gris */}
-              <div className="flex items-center gap-4 border-b border-neutral-800 pb-4">
-                <div className="w-12 h-16 relative flex-shrink-0 bg-neutral-800">
-                  <img alt="Crónicas del Ángel Gris" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348608234l/230467._SX50_.jpg" className="object-cover w-full h-full" />
-                </div>
-                <div className="flex-grow">
-                  <a rel="nofollow" href="https://www.goodreads.com/review/show/9056380075" className="font-bold hover:underline">Crónicas del Ángel Gris</a>
-                  <p className="text-xs text-neutral-400">por Alejandro Dolina</p>
-                </div>
-              </div>
-
-              {/* Libro 3: Rebelión en la Granja */}
-              <div className="flex items-center gap-4 pb-2">
-                <div className="w-12 h-16 relative flex-shrink-0 bg-neutral-800">
-                  <img alt="Rebelión en la Granja" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1325861570l/170448._SY75_.jpg" className="object-cover w-full h-full" />
-                </div>
-                <div className="flex-grow">
-                  <a rel="nofollow" href="https://www.goodreads.com/review/show/9056378737" className="font-bold hover:underline">Rebelión en la Granja</a>
-                  <p className="text-xs text-neutral-400">por George Orwell</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              <h4 className="font-bold text-sm uppercase tracking-tight group-hover:text-ediciones-accent transition-colors">
+                {item.title}
+              </h4>
+              <p className="text-xs text-neutral-400 font-serif mt-1">{item.author}</p>
+              <span className="text-[10px] uppercase tracking-widest text-neutral-500 mt-3 border border-neutral-800 px-2 py-1 rounded">
+                Ver en Goodreads ↗
+              </span>
+            </a>
+          ))}
         </div>
       </section>
-
-      {/* Script oficial de Goodreads para la sincronización automática */}
-      <Script 
-  src="https://www.goodreads.com/review/custom_widget/205858549.Demian's%20bookshelf:%20read?cover_position=&cover_size=&num_books=5&order=&shelf=&sort=&widget_bg_transparent=" 
-  strategy="lazyOnload"
-  charSet="utf-8"
-/>
     </div>
   );
 }
